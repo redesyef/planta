@@ -8,7 +8,7 @@ const navigation = [
   },
   {
     _tag: "CSidebarNavDropdown",
-    name: "CC Viva Barranquilla",
+    name: "Electron Monitor System",
     route: "/",
     icon: "cil-speedometer",
     _children: [
