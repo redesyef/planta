@@ -139,7 +139,7 @@ const Senales = () => {
           });
           setOptions({ series: series });
         });
-    }, 50);
+    }, 1000);
     return () => clearInterval(interval);
   }, []);
 
