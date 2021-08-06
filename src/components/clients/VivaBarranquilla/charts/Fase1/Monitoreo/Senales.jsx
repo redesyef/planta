@@ -148,4 +148,4 @@ const Senales = () => {
   highcharts={Highcharts} options={options} />;
 };
 
-export default React.memo(Senales)
+export default Senales
