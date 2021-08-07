@@ -17,6 +17,7 @@ import Fp from '../VivaBarranquilla/charts/Fase1/Monitoreo/Fp'
 import Vrms from '../VivaBarranquilla/charts/Fase1/Monitoreo/Vrms'
 import Irms from '../VivaBarranquilla/charts/Fase1/Monitoreo/Irms'
 import Consumo from '../VivaBarranquilla/charts/Fase1/Monitoreo/Consumo'
+import Senales from "../VivaBarranquilla/charts/Fase1/Monitoreo/Senales";
 
 
 const Monitoreo = () => {
@@ -25,7 +26,26 @@ const Monitoreo = () => {
    
     <CRow>
      
-
+     <CCol sm="9" lg="3">
+        <CWidgetDropdown
+          color="gradient-primary"
+          header="V"
+          text="Vrms"
+          footerSlot={
+            <Senales
+              pointed
+              className="c-chart-wrapper mt-3 mx-3"
+              style={{height: '70px'}}
+              dataPoints={[65, 59, 84, 84, 51, 55, 40]}
+              pointHoverBackgroundColor="primary"
+              label=""
+              labels=""
+            />
+          }
+        >
+         
+        </CWidgetDropdown>
+      </CCol>
       <CCol sm="9" lg="3">
         <CWidgetDropdown
           color="gradient-primary"
