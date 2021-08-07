@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { render } from "react-dom";
+import axios from "axios";
+
 // Import Highcharts
 import Highcharts from "highcharts/highstock";
 //import HighchartsReact from "./HighchartsReact.js";
@@ -7,8 +8,9 @@ import HighchartsReact from "highcharts-react-official";
 require('highcharts/modules/exporting')(Highcharts);
 require('highcharts/modules/export-data')(Highcharts);
 require('highcharts/modules/stock')(Highcharts);
+let url = 'http://muons.com.co/soft/demo1/senales/articulos.php';
 
-const Senales = () => {
+const Grafica = () => {
   const [options, setOptions] = useState({
     chart: {
         zoomType: 'x',
@@ -85,7 +87,7 @@ const Senales = () => {
           text: 'All'
       }],
         inputEnabled: false,
-        selected: 2
+        selected: 3
     },
     
     legend: {
@@ -108,14 +110,23 @@ const Senales = () => {
      
     }, {}]
   });
-
+  
   useEffect(() => {
     const interval = setInterval(() => {
-      fetch("http://muons.com.co/soft/demo1/senales/articulos.php")
-        .then((response) => {
-          return response.json();
-        })
-        .then((data) => {
+      axios({
+        method:'get',
+        url: url + '?nocache=' + new Date().getTime(), // Safari fix 
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
+        },
+        mode: 'no-cors',
+        withCredentials:false
+
+      })
+        
+       
+        .then(res => {
+          
           const series = [
             {
               name: "Voltaje",
@@ -129,7 +140,7 @@ const Senales = () => {
           ];
           let date;
 
-          data.forEach(function (el) {
+          res.data.forEach(function (el) {
             //date = data.push([el.sensor]);
             date = new Date(el.fecha).getTime();
 
@@ -140,12 +151,14 @@ const Senales = () => {
           setOptions({ series: series });
         });
     }, 1000);
+    
     return () => clearInterval(interval);
   }, []);
+
 
   return <HighchartsReact 
   constructorType={"stockChart"}
   highcharts={Highcharts} options={options} />;
 };
 
-export default Senales
+export default Grafica
