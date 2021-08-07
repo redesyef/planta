@@ -4,9 +4,12 @@ import { render } from "react-dom";
 import Highcharts from "highcharts/highstock";
 //import HighchartsReact from "./HighchartsReact.js";
 import HighchartsReact from "highcharts-react-official";
+import axios from "axios";
 require('highcharts/modules/exporting')(Highcharts);
 require('highcharts/modules/export-data')(Highcharts);
 require('highcharts/modules/stock')(Highcharts);
+let url = 'https://www.muons.com.co/soft/demo1/datos1_reducido/articulos.php';
+
 const Kw = () => {
   const [options, setOptions] = useState({
     chart: {
@@ -107,11 +110,17 @@ const Kw = () => {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      fetch("https://www.muons.com.co/soft/demo1/datos1_reducido/articulos.php")
-        .then((response) => {
-          return response.json();
-        })
-        .then((data) => {
+      axios({
+        method:'get',
+        url: url + '?nocache=' + new Date().getTime(), // Safari fix 
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
+        },
+        mode: 'no-cors',
+        withCredentials:false
+
+      })
+        .then((res) => {
           const series = [
             
             {
@@ -122,7 +131,7 @@ const Kw = () => {
           ];
           let date;
 
-          data.forEach(function (el) {
+          res.data.forEach(function (el) {
             //date = data.push([el.sensor]);
             date = new Date(el.fecha).getTime();
 
@@ -134,7 +143,7 @@ const Kw = () => {
           });
           setOptions({ series: series });
         });
-    }, 50);
+    }, 1000);
     return () => clearInterval(interval);
   }, []);
 

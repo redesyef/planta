@@ -1,6 +1,3 @@
-import CIcon from "@coreui/icons-react";
-import React from "react";
-
 const navigation = [
   {
     _tag: "CSidebarNavTitle",

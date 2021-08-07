@@ -26,7 +26,7 @@ const Monitoreo = () => {
     <CRow>
      
 
-      <CCol sm="6" lg="3">
+      <CCol sm="9" lg="3">
         <CWidgetDropdown
           color="gradient-primary"
           header="V"
@@ -47,7 +47,7 @@ const Monitoreo = () => {
         </CWidgetDropdown>
       </CCol>
 
-      <CCol sm="6" lg="3">
+      <CCol sm="9" lg="3">
         <CWidgetDropdown
           color="gradient-info"
           header="A"
@@ -69,7 +69,7 @@ const Monitoreo = () => {
           
         </CWidgetDropdown>
       </CCol>
-      <CCol sm="6" lg="3">
+      <CCol sm="9" lg="3">
         <CWidgetDropdown
           color="gradient-danger"
           header="Ángulo"
@@ -96,7 +96,7 @@ const Monitoreo = () => {
         </CWidgetDropdown>
       </CCol>
 
-      <CCol sm="6" lg="3">
+      <CCol sm="9" lg="3">
         <CWidgetDropdown
           color="gradient-primary"
           header="Kwh"
@@ -117,7 +117,7 @@ const Monitoreo = () => {
         </CWidgetDropdown>
       </CCol>
 
-      <CCol sm="6" lg="3">
+      <CCol sm="9" lg="3">
         <CWidgetDropdown
           color="gradient-info"
           header="kVA"
@@ -139,7 +139,7 @@ const Monitoreo = () => {
           
         </CWidgetDropdown>
       </CCol>
-      <CCol sm="6" lg="3">
+      <CCol sm="9" lg="3">
         <CWidgetDropdown
           color="gradient-danger"
           header="kW"
