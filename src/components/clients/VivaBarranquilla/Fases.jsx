@@ -27,7 +27,7 @@ const Fases = () => {
           <Senales style={{ height: "300px", marginTop: "40px" }} />
         </CCardBody>
       </CCard>
-      <Carousel />
+      
     </>
   );
 };
