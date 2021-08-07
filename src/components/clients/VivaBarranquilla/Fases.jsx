@@ -13,7 +13,7 @@ import {
   CRow,
   CCallout,
 } from "@coreui/react";
-import CIcon from "@coreui/icons-react";
+
 
 import Senales from "../VivaBarranquilla/charts/Fase1/Monitoreo/Senales";
 import Carousel from "./images/Carousel";
