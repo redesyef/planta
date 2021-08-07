@@ -8,7 +8,7 @@ import HighchartsReact from "highcharts-react-official";
 require('highcharts/modules/exporting')(Highcharts);
 require('highcharts/modules/export-data')(Highcharts);
 require('highcharts/modules/stock')(Highcharts);
-let url = 'https://muons.com.co/soft/device2/fase1/senales/articulos.php';
+let url = 'https://muons.com.co/soft/demo1/senales1/articulos.php';
 
 const Grafica = () => {
   const [options, setOptions] = useState({
