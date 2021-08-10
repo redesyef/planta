@@ -28,6 +28,11 @@ const Kvar = () => {
         }
       }
     },
+    yAxis: [ { // Secondary yAxis
+      title: false,
+      max: 4000,
+      min: 0,
+  }],
     tooltip: {
         valueSuffix: ' kVAR',
         crosshairs: true,

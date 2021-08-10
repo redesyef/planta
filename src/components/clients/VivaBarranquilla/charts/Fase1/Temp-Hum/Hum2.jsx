@@ -29,6 +29,12 @@ const Hum2 = () => {
         }
       }
     },
+    yAxis: [ { // Secondary yAxis
+      title: false,
+      max: 100,
+      min: 0,
+      startOnTick: false
+  }],
     tooltip: {
         valueSuffix: '%',
         crosshairs: true,
@@ -136,7 +142,7 @@ const Hum2 = () => {
           const series = [
             
             {
-              name: "Humedad 2",
+              name: "Humedad ",
               data: []
             }
             

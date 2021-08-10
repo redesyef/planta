@@ -28,6 +28,10 @@ const Consumo = () => {
         }
       }
     },
+    yAxis: [ { // Secondary yAxis
+      title: false,
+     
+  }],
     tooltip: {
         valueSuffix: ' Kwh',
         crosshairs: true,

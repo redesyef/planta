@@ -28,6 +28,11 @@ const Kva = () => {
         }
       }
     },
+    yAxis: [ { // Secondary yAxis
+      title: false,
+      max: 4000,
+      min: 0,
+  }],
     tooltip: {
         valueSuffix: ' kVA',
         crosshairs: true,

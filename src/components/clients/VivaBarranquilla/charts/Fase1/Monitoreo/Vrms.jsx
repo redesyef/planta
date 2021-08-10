@@ -28,6 +28,12 @@ const Vrms = () => {
         }
       }
     },
+    yAxis: [ { // Secondary yAxis
+      title: false,
+      max: 150,
+      min: 100,
+      startOnTick: false
+  }],
     tooltip: {
         valueSuffix: ' V',
         crosshairs: true,

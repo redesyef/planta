@@ -28,6 +28,12 @@ const Temp2 = () => {
         }
       }
     },
+    yAxis: [ { // Secondary yAxis
+      title: false,
+      max: 100,
+      min: 0,
+      startOnTick: false
+  }],
     tooltip: {
         valueSuffix: '°C',
         crosshairs: true,

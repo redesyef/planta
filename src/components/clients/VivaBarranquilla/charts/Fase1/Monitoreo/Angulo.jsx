@@ -28,6 +28,12 @@ const Angulo = () => {
         }
       }
     },
+    yAxis: [ { // Secondary yAxis
+      title: false,
+      max: 90,
+      min: 0,
+      startOnTick: false
+  }],
     tooltip: {
         valueSuffix: '°',
         crosshairs: true,

@@ -28,6 +28,12 @@ const Fp = () => {
         }
       }
     },
+    yAxis: [ { // Secondary yAxis
+      title: false,
+      max: 1,
+      min: 0,
+      startOnTick: false
+  }],
     tooltip: {
         valueSuffix: ' FP',
         crosshairs: true,

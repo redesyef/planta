@@ -29,6 +29,11 @@ const Kw = () => {
         }
       }
     },
+    yAxis: [ { // Secondary yAxis
+      title: false,
+      max: 4000,
+      min: 0,
+  }],
     tooltip: {
         valueSuffix: ' kW',
         crosshairs: true,

@@ -28,6 +28,13 @@ const Temp1 = () => {
         }
       }
     },
+    yAxis: [ { // Secondary yAxis
+      title: false,
+      max: 100,
+      min: 0,
+      startOnTick: false
+  }],
+    
     tooltip: {
         valueSuffix: '°C',
         crosshairs: true,
@@ -124,8 +131,7 @@ const Temp1 = () => {
             
             {
               name: "Temperatura 1",
-              data: [],
-              
+              data: [],              
             }
             
           ];
