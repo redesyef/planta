@@ -142,7 +142,9 @@ const Grafica = () => {
 
           res.data.forEach(function (el) {
             //date = data.push([el.sensor]);
-            date = new Date(el.fecha).getTime();
+            //date = new Date(el.fecha).getTime();
+            date=  new Date(el.fecha.replace(/\s+/g, 'T')).getTime();
+
 
             series[0].data.push([date, el.voltaje]);
             series[1].data.push([date, el.corriente]);
