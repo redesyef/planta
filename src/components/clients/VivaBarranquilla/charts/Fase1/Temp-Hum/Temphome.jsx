@@ -1,32 +1,24 @@
 import React, { useState, useEffect } from "react";
-import { render } from "react-dom";
+import axios from "axios";
+
 // Import Highcharts
 import Highcharts from "highcharts/highstock";
 //import HighchartsReact from "./HighchartsReact.js";
 import HighchartsReact from "highcharts-react-official";
-import axios from "axios";
 require('highcharts/modules/exporting')(Highcharts);
 require('highcharts/modules/export-data')(Highcharts);
 require('highcharts/modules/stock')(Highcharts);
+let url = 'https://muons.com.co//soft/demo1/datos1/articulos.php';
 
-let url = 'https://www.muons.com.co/soft/demo1/datos1_reducido/articulos.php';
-const Hum1 = () => {
+const Temphome = () => {
   const [options, setOptions] = useState({
     chart: {
         zoomType: 'x',
         type: 'spline',
-        height: 200,
-       
     },
     title: {
-      text: ""
+      text: "Temperaturas"
     },
-    yAxis: [ { // Secondary yAxis
-      title: false,
-      max: 100,
-      min: 0,
-      startOnTick: false
-  }],
     xAxis: {
       type: "datetime",
       labels: {
@@ -36,23 +28,39 @@ const Hum1 = () => {
         }
       }
     },
+    yAxis: [{
+        offset: 20,
+
+       
+      },
+        
+      ],
+
     tooltip: {
-        valueSuffix: '%',
-        crosshairs: true,
-        shared: true,
+        //valueSuffix: ' V',
+        //crosshairs: true,
+        //shared: true,
+        split: true,
+        valueDecimals: 2,
       },
       plotOptions: {
         spline: {
-          lineWidth: 4,
+          lineWidth: 2,
+          halo: 0.25,
           states: {
-            hover: {
-              lineWidth: 4
-            }
+           
           },
           marker: {
             enabled: false
           },
-          pointInterval: 3600000, // one hour
+          series: {
+            animation: false,
+           //showInNavigator: true,
+           showInLegend: true
+  
+          },
+         // pointInterval: 3600000,
+           
           
         }
       },
@@ -63,7 +71,7 @@ const Hum1 = () => {
         viewFullscreen:"Pantalla completa",
         exitFullscreen: "Salir de pantalla completa",
         printChart: "Imprimir",
-        //downloadPNG: "Gráfica en PNG",
+        downloadPNG: "Gráfica en PNG",
         downloadJPEG: "Gráfica en JEPG",
         downloadPDF: "Gráfica en PDF",
         downloadSVG: "Gráfica en vector SVG",
@@ -73,7 +81,6 @@ const Hum1 = () => {
         hideData: "Ocultar tabla de datos",
         
       },
-      
       time: {
         useUTC: false
     },
@@ -81,23 +88,21 @@ const Hum1 = () => {
     rangeSelector: {
         buttons: [{
             count: 1,
-            type: 'second',
+            type: 'day',
+            text: '1D'
+        }, {
+            count: 2,
+            type: 'week',
             text: '1S'
-        }, {
-            count: 10,
-            type: 'second',
-            text: '10S'
-        }, {
-          count: 20,
-          type: 'second',
-          text: '20S'
-      }, {
+        },  {
           type: 'all',
           text: 'All'
       }],
-        inputEnabled: false,
-        selected: 0
+        inputEnabled: true,
+        selected: 1
     },
+   
+    
     legend: {
         enabled: true,
         accessibility: true,
@@ -110,23 +115,15 @@ const Hum1 = () => {
       },
      
     series: [{
-      fillColor: {
-        linearGradient: {
-          x1: 0,
-          y1: 0,
-          x2: 0,
-          y2: 1
-        },stops: [
-          [0, Highcharts.getOptions().colors[0]],
-          [1, Highcharts.color(Highcharts.getOptions().colors[0]).setOpacity(0).get('rgba')]
-        ]
-      },
-
+        
         lineWidth: 2,
-          
-    }, {}, {}]
+        color: '#ff671b', 
+        
+    }, {
+     
+    }, {}]
   });
-
+  
   useEffect(() => {
     const interval = setInterval(() => {
       axios({
@@ -139,13 +136,20 @@ const Hum1 = () => {
         withCredentials:false
 
       })
-        .then((res) => {
+        
+       
+        .then(res => {
+          
           const series = [
-            
             {
-              name: "Humedad 1",
+              name: "Sensor 1",
+              data: []
+            },
+            {
+              name: "Sensor 2",
               data: []
             }
+            
             
           ];
           let date;
@@ -155,22 +159,22 @@ const Hum1 = () => {
             //date = new Date(el.fecha).getTime();
             date=  new Date(el.fecha.replace(/\s+/g, 'T')).getTime();
 
-           
-            series[0].data.push([date, el.hum]);
+
+            series[0].data.push([date, el.temp2]);
+            series[1].data.push([date, el.temp3]);
             
-            
-                        
           });
           setOptions({ series: series });
         });
-    }, 1000);
+    }, 4000);
+    
     return () => clearInterval(interval);
   }, []);
 
+
   return <HighchartsReact 
-  
-  
+  constructorType={"stockChart"}
   highcharts={Highcharts} options={options} />;
 };
 
-export default Hum1
+export default Temphome
