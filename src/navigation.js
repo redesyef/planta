@@ -24,7 +24,7 @@ const navigation = [
       {
         _tag: "CSidebarNavItem",
         name: "Iluminación",
-        to: "/planta/temp_hum",
+        to: "/planta/iluminacion",
         icon: "cilGraph",
       },
       {

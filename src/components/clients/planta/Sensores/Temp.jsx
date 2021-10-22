@@ -8,7 +8,7 @@ import HighchartsReact from "highcharts-react-official";
 require('highcharts/modules/exporting')(Highcharts);
 require('highcharts/modules/export-data')(Highcharts);
 require('highcharts/modules/stock')(Highcharts);
-let url = 'https://muons.com.co//soft/demo1/datos1/articulos.php';
+let url = 'https://www.muons.com.co/soft/planta/php/articulos.php';
 
 const Temp = () => {
   const [options, setOptions] = useState({
@@ -142,11 +142,23 @@ const Temp = () => {
           
           const series = [
             {
-              name: "Sensor 1",
+              name: "Temperatura1",
               data: []
             },
             {
-              name: "Sensor 2",
+              name: "Temperatura2",
+              data: []
+            },
+            {
+              name: "Temperatura3",
+              data: []
+            },
+            {
+              name: "Temperatura4",
+              data: []
+            },
+            {
+              name: "Temperatura5",
               data: []
             }
             
@@ -160,8 +172,11 @@ const Temp = () => {
             date=  new Date(el.fecha.replace(/\s+/g, 'T')).getTime();
 
 
-            series[0].data.push([date, el.temp2]);
-            series[1].data.push([date, el.temp3]);
+            series[0].data.push([date, el.temp1]);
+            series[1].data.push([date, el.temp2]);
+            series[2].data.push([date, el.temp3]);
+            series[3].data.push([date, el.temp4]);
+            series[4].data.push([date, el.temp5]);
             
           });
           setOptions({ series: series });

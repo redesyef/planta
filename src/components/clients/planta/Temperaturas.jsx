@@ -15,8 +15,8 @@ import {
   CWidgetDropdown
 } from "@coreui/react";
 
-import Temp from "./Temp";
-import Graphs from "./Graphs"
+import Temp from "./Sensores/Temp";
+import Graphs from "./Sensores/Graphs"
 
 const Temperaturas = () => {
   

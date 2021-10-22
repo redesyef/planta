@@ -10,14 +10,14 @@ require('highcharts/modules/export-data')(Highcharts);
 require('highcharts/modules/stock')(Highcharts);
 let url = 'https://www.muons.com.co/soft/planta/php/articulos.php';
 
-const Aire = () => {
+const Temp = () => {
   const [options, setOptions] = useState({
     chart: {
         zoomType: 'x',
         type: 'spline',
     },
     title: {
-      text: "Aire"
+      text: "Movimientos"
     },
     xAxis: {
       type: "datetime",
@@ -142,9 +142,13 @@ const Aire = () => {
           
           const series = [
             {
-              name: "Aire",
+              name: "Movimiento",
               data: []
-            }
+            },
+            {
+                name: "Movimiento2",
+                data: []
+              }
            
                         
           ];
@@ -156,8 +160,8 @@ const Aire = () => {
             date=  new Date(el.fecha.replace(/\s+/g, 'T')).getTime();
 
 
-            series[0].data.push([date, el.lluvia]);
-            
+            series[0].data.push([date, el.mov1]);
+            series[0].data.push([date, el.mov2]);
             
             
           });
@@ -174,4 +178,4 @@ const Aire = () => {
   highcharts={Highcharts} options={options} />;
 };
 
-export default Aire
+export default Temp
