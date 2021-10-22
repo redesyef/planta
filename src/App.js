@@ -33,7 +33,7 @@ const App = () => {
         <Switch>
           <Route path="/" exact component={Home} />
           <ProtectedRoute path="/profile" component={Profile} />
-          <ProtectedRoute path="/viva_barranquilla" component={TheLayout} />
+          <ProtectedRoute path="/planta" component={TheLayout} />
         </Switch>
       </div>
     </div>

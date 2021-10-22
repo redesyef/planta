@@ -13,7 +13,7 @@ const MainNav = () => (
       Home
     </NavLink>
     <NavLink
-      to="/viva_barranquilla"
+      to="/planta"
       exact
       className="nav-link"
       activeClassName="router-link-exact-active"

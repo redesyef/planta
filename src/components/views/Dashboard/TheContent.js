@@ -12,26 +12,20 @@ import Monitoreo from "../../clients/VivaBarranquilla/Monitoreo";
 import Temp_hum from "../../clients/VivaBarranquilla/Temp_hum";
 import profile from "../Layout/profile";
 import Bussines from "../../clients/VivaBarranquilla/Bussines";
+import Temp from "../../clients/planta/Sensores/Temp";
+import Temperaturas from "../../clients/planta/Sensores/Temperaturas";
 
 const TheContent = () => {
   return (
     <main className="c-main">
       <BrowserRouter>
         <Switch>
-          <Route exact path="/viva_barranquilla" component={Bussines} />
-          <Route exact path="/viva_barranquilla/perfil" component={profile} />
+          <Route exact path="/planta" component={Bussines} />
+          <Route exact path="/planta/perfil" component={profile} />
 
-          <Route exact path="/viva_barranquilla/fases" component={Fases} />
-          <Route
-            exact
-            path="/viva_barranquilla/monitoreo"
-            component={Monitoreo}
-          />
-          <Route
-            exact
-            path="/viva_barranquilla/temp_hum"
-            component={Temp_hum}
-          />
+          <Route exact path="/planta/temperatura" component={Temperaturas} />
+          <Route exact path="/planta/monitoreo" component={Monitoreo} />
+          <Route exact path="/planta/temp_hum" component={Temp_hum} />
         </Switch>
       </BrowserRouter>
     </main>

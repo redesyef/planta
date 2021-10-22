@@ -1,7 +1,7 @@
 const navigation = [
   {
     _tag: "CSidebarNavTitle",
-    _children: ["SISTEMA DE MONITOREO"],
+    _children: ["Soluciones IoT"],
   },
   {
     _tag: "CSidebarNavDropdown",
@@ -11,20 +11,32 @@ const navigation = [
     _children: [
       {
         _tag: "CSidebarNavItem",
-        name: "Fases",
-        to: "/viva_barranquilla/fases",
+        name: "Temperaturas",
+        to: "/planta/temperatura",
         icon: "cilList",
       },
       {
         _tag: "CSidebarNavItem",
-        name: "Monitoreo",
-        to: "/viva_barranquilla/monitoreo",
+        name: "Calidad de aire",
+        to: "/planta/aire",
         icon: "cilTask",
       },
       {
         _tag: "CSidebarNavItem",
-        name: "Temp-hum",
-        to: "/viva_barranquilla/temp_hum",
+        name: "Iluminación",
+        to: "/planta/temp_hum",
+        icon: "cilGraph",
+      },
+      {
+        _tag: "CSidebarNavItem",
+        name: "Lluvia",
+        to: "/planta/lluvia",
+        icon: "cilGraph",
+      },
+      {
+        _tag: "CSidebarNavItem",
+        name: "Movimiento",
+        to: "/planta/movimiento",
         icon: "cilGraph",
       },
       {

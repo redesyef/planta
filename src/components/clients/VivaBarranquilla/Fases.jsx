@@ -20,6 +20,8 @@ import Senales from "../VivaBarranquilla/charts/Fase1/Monitoreo/Senales";
 import Total from "./charts/Fase1/Monitoreo/Total";
 import Carousel from "./images/Carousel";
 import Temphome from "./charts/Fase1/Temp-Hum/Temphome";
+import Grafica from "./Graphs";
+import PlotlyComponent from "./PlotlyComponent"
 
 
 
@@ -63,7 +65,8 @@ const Fases = () => {
         </CCardBody> 
       </CCard>   
       
-      <Carousel />
+      <Grafica />
+      <PlotlyComponent />
       
     </>
   );

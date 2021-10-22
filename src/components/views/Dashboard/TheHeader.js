@@ -58,10 +58,10 @@ const TheHeader = () => {
 
       <CHeaderNav className="d-md-down-none mr-auto">
         <CHeaderNavItem className="px-3">
-          <CHeaderNavLink to="/viva_barranquilla">Inicio</CHeaderNavLink>
+          <CHeaderNavLink to="/planta">Inicio</CHeaderNavLink>
         </CHeaderNavItem>
         <CHeaderNavItem className="px-3">
-          <CHeaderNavLink to="/viva_barranquilla/perfil">Perfil</CHeaderNavLink>
+          <CHeaderNavLink to="/planta/perfil">Perfil</CHeaderNavLink>
         </CHeaderNavItem>
       </CHeaderNav>
 

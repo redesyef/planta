@@ -7,7 +7,7 @@ export default () => (
     <div>
       <img
         alt=""
-        src="https://muons.com.co/soft/fotos/viva_barranquilla/home.jpg"
+        src="https://muons.com.co/soft/fotos/planta/baul.jpg"
       />
     </div>
    
