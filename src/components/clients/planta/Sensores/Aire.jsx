@@ -156,7 +156,7 @@ const Aire = () => {
             date=  new Date(el.fecha.replace(/\s+/g, 'T')).getTime();
 
 
-            series[0].data.push([date, el.lluvia]);
+            series[0].data.push([date, el.aire]);
             
             
             
